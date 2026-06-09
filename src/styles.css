@@ -1,0 +1,350 @@
+/* =========================
+   BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fce7f3 0%, #e9d5ff 50%, #ffe4e6 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.heart-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+/* =========================
+   ENVELOPES
+========================= */
+.envelopes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.envelope {
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.envelope.unlocked {
+    cursor: pointer;
+}
+
+.envelope.unlocked:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.envelope.locked {
+    background: #d1d5db;
+    opacity: 0.6;
+}
+
+.envelope-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.envelope-icon {
+    font-size: 32px;
+}
+
+.envelope-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.envelope-subtitle {
+    font-size: 0.9rem;
+}
+
+.envelope.unlocked .envelope-title,
+.envelope.unlocked .envelope-subtitle {
+    color: white;
+}
+
+/* =========================
+   LETTER VIEW
+========================= */
+.letter-view {
+    display: none;
+}
+
+.letter-view.active {
+    display: block;
+}
+
+.letter-card {
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.letter-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255,255,255,0.25), transparent 60%);
+    pointer-events: none;
+}
+
+.letter-content {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    min-height: 400px;
+}
+
+.letter-text {
+    white-space: pre-line;
+    line-height: 1.8;
+    color: #374151;
+    font-size: 1.1rem;
+}
+
+/* =========================
+   GAME VIEW
+========================= */
+.game-view {
+    display: none;
+}
+
+.game-view.active {
+    display: block;
+}
+
+.word-display {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.letter-box {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #d1d5db;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: white;
+}
+
+.letter-box.correct { background: #86efac; }
+.letter-box.present { background: #fde047; }
+.letter-box.absent { background: #e5e7eb; }
+
+/* =========================
+   KEYBOARD
+========================= */
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.key {
+    padding: 15px;
+    min-width: 40px;
+    border: none;
+    border-radius: 8px;
+    background: #e5e7eb;
+    cursor: pointer;
+}
+
+.key.wide {
+    min-width: 65px;
+}
+
+.key.correct { background: #86efac; }
+.key.present { background: #fde047; }
+.key.absent { background: #9ca3af; }
+
+/* =========================
+   HINT + MESSAGE
+========================= */
+.hint-section {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: #fef3c7;
+    border-radius: 10px;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    min-height: 30px;
+}
+
+.message.success { color: #22c55e; }
+.message.error { color: #ef4444; }
+
+/* =========================
+   📼 VOICE NOTE + CASSETTE UI
+========================= */
+
+.voice-note {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* label */
+.voice-note-title {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* 📼 CASSETTE */
+.cassette {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px;
+    background: linear-gradient(145deg, #1f2937, #111827);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* window */
+.cassette-window {
+    height: 60px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* reels */
+.reel {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 3px solid #9ca3af;
+    animation: spin 3s linear infinite;
+}
+
+.reel.right {
+    animation-direction: reverse;
+}
+
+/* tape */
+.tape-line {
+    flex: 1;
+    height: 4px;
+    margin: 0 10px;
+    background: repeating-linear-gradient(
+        90deg,
+        #f472b6,
+        #f472b6 6px,
+        transparent 6px,
+        transparent 12px
+    );
+    opacity: 0.7;
+}
+
+/* controls */
+.cassette-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.cassette-btn {
+    background: #374151;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cassette-btn:hover {
+    background: #4b5563;
+}
+
+.cassette-btn.playing {
+    background: #ec4899;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* =========================
+   GRADIENTS
+========================= */
+.gradient-1 { background: linear-gradient(135deg, #f472b6, #fb7185); }
+.gradient-2 { background: linear-gradient(135deg, #c084fc, #ec4899); }
+.gradient-3 { background: linear-gradient(135deg, #f87171, #ec4899); }
+.gradient-4 { background: linear-gradient(135deg, #fb7185, #ef4444); }
+.gradient-5 { background: linear-gradient(135deg, #ec4899, #a855f7); }
+.gradient-6 { background: linear-gradient(135deg, #e879f9, #ec4899); }
+.gradient-7 { background: linear-gradient(135deg, #ef4444, #ec4899); }
