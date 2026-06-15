@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        
         <div id="mainView">
             <div class="header">
                 <div class="heart-icon">❤️</div>
@@ -19,13 +20,33 @@
             <div class="envelopes" id="envelopes"></div>
 
             <div class="drive-link-container">
-                <a href="https://drive.google.com/drive/folders/1babBPSn9asIHwvCPWGMzqJKIWuNMDKoM?usp=drive_link" target="_blank" class="drive-btn">
+                <button onclick="openVault()" class="drive-btn" style="cursor: pointer; font-family: inherit;">
                     📁 Open Voice Notes Vault
-                </a>
+                </button>
             </div>
 
             <div class="footer-quote">
                 "Distance means so little when someone means so much" 💕
+            </div>
+        </div>
+
+        <div id="vaultView" class="vault-view">
+            <div class="letter-card gradient-1">
+                <div class="letter-content">
+                    <div class="letter-header">
+                        <div class="letter-title-section">
+                            <h2>Voice Notes Vault 🎧</h2>
+                            <p class="letter-day">All your baatein in one place</p>
+                        </div>
+                        <button class="close-btn" onclick="closeVault()">×</button>
+                    </div>
+                    
+                    <div id="vaultList" class="vault-list"></div>
+
+                    <div class="back-btn-container">
+                        <button class="back-btn" onclick="closeVault()">Back to envelopes</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -74,6 +95,7 @@
                 <button class="back-btn" onclick="closeLetter()">Back to all letters</button>
             </div>
         </div>
+
     </div>
 
     <script type="module" src="./play.js"></script>
