@@ -5,7 +5,7 @@ import { letters, wordPuzzles } from "./letters.js";
 ========================= */
 
 let selectedLetter = null;
-let unlockedLetters = JSON.parse(localStorage.getItem("unlockedLetters")) || {};
+let unlockedLetters = {};
 
 let currentGuess = "";
 let attempts = 0;
