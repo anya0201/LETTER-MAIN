@@ -425,7 +425,7 @@ function openVault() {
       
       item.innerHTML = `
         <div class="vault-item-title">Day ${letter.day}: ${cleanTitle}</div>
-        <audio controls src="${letter.voice}"></audio>
+        <audio controls controlsList="nodownload" src="${letter.voice}"></audio>
       `;
       vaultList.appendChild(item);
     }
@@ -438,11 +438,12 @@ function openVault() {
     
     item.innerHTML = `
       <div class="vault-item-title">✨ Extra: ${note.title}</div>
-      <audio controls src="${note.voice}"></audio>
+      <audio controls controlsList="nodownload" src="${note.voice}"></audio>
     `;
     vaultList.appendChild(item);
   });
 }
+
 
 
 
