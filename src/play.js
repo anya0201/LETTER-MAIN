@@ -405,7 +405,46 @@ document.addEventListener("keydown", e => {
 
 renderEnvelopes();
 
+/* =========================
+   VOICE VAULT
+========================= */
+
+function openVault() {
+  document.getElementById("mainView").style.display = "none";
+  document.getElementById("vaultView").classList.add("active");
+
+  const vaultList = document.getElementById("vaultList");
+  vaultList.innerHTML = ""; // Clear it out
+
+  // Loop through your letters and create an audio player for each one!
+  letters.forEach(letter => {
+    if (letter.voice) {
+      const item = document.createElement("div");
+      item.className = "vault-item";
+      
+      // We clean up the title so it just says the nickname
+      const cleanTitle = letter.title.replace(`Day ${letter.day}: `, "");
+      
+      item.innerHTML = `
+        <div class="vault-item-title">Day ${letter.day}: ${cleanTitle}</div>
+        <audio controls src="${letter.voice}"></audio>
+      `;
+      vaultList.appendChild(item);
+    }
+  });
+}
+
+function closeVault() {
+  document.getElementById("mainView").style.display = "block";
+  document.getElementById("vaultView").classList.remove("active");
+
+  // This prevents the audio from continuing to play after she closes the vault!
+  const audios = document.querySelectorAll("#vaultList audio");
+  audios.forEach(a => a.pause());
+}
 /* expose */
+window.openVault = openVault;
+window.closeVault = closeVault;
 window.closeGame = closeGame;
 window.openLetter = openLetter;
 window.closeLetter = closeLetter;
