@@ -119,16 +119,16 @@ export const bonusVoiceNotes = [
   { 
     title: "Just Because", 
     voice: "./voices/11.mp3" 
-  }
-   { 
+  }, // <-- I added a comma here!
+  { 
     title: "Panda 🐼", 
     voice: "./voices/12.mp3" 
-  }
- { 
+  }, // <-- I added a comma here!
+  { 
     title: "Strawberry", 
     voice: "./voices/13.mp3" 
-  }
- { 
+  }, // <-- I added a comma here!
+  { 
     title: "Butterfly 🦋", 
     voice: "./voices/14.mp3" 
   }
