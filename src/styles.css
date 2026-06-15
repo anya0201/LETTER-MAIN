@@ -52,6 +52,12 @@ h1 {
     font-size: 1.1rem;
 }
 
+.day-counter {
+    margin-top: 20px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
 /* =========================
    ENVELOPES
 ========================= */
@@ -83,6 +89,7 @@ h1 {
 .envelope.locked {
     background: #d1d5db;
     opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .envelope-left {
@@ -108,6 +115,29 @@ h1 {
 .envelope.unlocked .envelope-title,
 .envelope.unlocked .envelope-subtitle {
     color: white;
+}
+
+.envelope.locked .envelope-title {
+    color: #6b7280;
+}
+
+.envelope.locked .envelope-subtitle {
+    color: #9ca3af;
+}
+
+.heart-small {
+    font-size: 24px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer-quote {
+    margin-top: 60px;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    font-size: 1rem;
 }
 
 /* =========================
@@ -145,11 +175,79 @@ h1 {
     min-height: 400px;
 }
 
+.letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 30px;
+}
+
+.letter-title-section h2 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.letter-day {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #6b7280;
+}
+
 .letter-text {
     white-space: pre-line;
     line-height: 1.8;
     color: #374151;
     font-size: 1.1rem;
+}
+
+.letter-heart {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 32px;
+    animation: pulse 2s infinite;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.back-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-btn {
+    padding: 15px 30px;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.game-back-btn {
+    text-align: center;
+    margin-top: 30px;
 }
 
 /* =========================
@@ -161,6 +259,37 @@ h1 {
 
 .game-view.active {
     display: block;
+}
+
+.game-card {
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.game-content {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-header h2 {
+    font-size: 1.8rem;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.game-instructions {
+    color: #6b7280;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 0.95rem;
 }
 
 .word-display {
@@ -180,12 +309,24 @@ h1 {
     justify-content: center;
     font-size: 1.8rem;
     font-weight: bold;
+    color: #1f2937;
     background: white;
 }
 
-.letter-box.correct { background: #86efac; }
-.letter-box.present { background: #fde047; }
-.letter-box.absent { background: #e5e7eb; }
+.letter-box.correct {
+    background: #86efac;
+    border-color: #22c55e;
+}
+
+.letter-box.present {
+    background: #fde047;
+    border-color: #eab308;
+}
+
+.letter-box.absent {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
 
 /* =========================
    KEYBOARD
@@ -194,6 +335,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 30px;
 }
 
 .keyboard-row {
@@ -208,32 +350,63 @@ h1 {
     border: none;
     border-radius: 8px;
     background: #e5e7eb;
+    color: #1f2937;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+.key:hover {
+    background: #d1d5db;
+    transform: scale(1.05);
 }
 
 .key.wide {
     min-width: 65px;
+    font-size: 0.85rem;
 }
 
-.key.correct { background: #86efac; }
-.key.present { background: #fde047; }
-.key.absent { background: #9ca3af; }
+.key.correct {
+    background: #86efac;
+    color: #166534;
+}
+
+.key.present {
+    background: #fde047;
+    color: #854d0e;
+}
+
+.key.absent {
+    background: #9ca3af;
+    color: #4b5563;
+}
 
 /* =========================
    HINT + MESSAGE
 ========================= */
+.attempts {
+    text-align: center;
+    margin-top: 20px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
 .hint-section {
     text-align: center;
     margin-top: 20px;
     padding: 15px;
     background: #fef3c7;
     border-radius: 10px;
+    color: #92400e;
 }
 
 .message {
     text-align: center;
     margin-top: 20px;
     min-height: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .message.success { color: #22c55e; }
@@ -242,7 +415,6 @@ h1 {
 /* =========================
    📼 VOICE NOTE + CASSETTE UI
 ========================= */
-
 .voice-note {
     margin-top: 20px;
     padding: 18px;
@@ -252,14 +424,12 @@ h1 {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* label */
 .voice-note-title {
     font-size: 0.9rem;
     margin-bottom: 10px;
     opacity: 0.9;
 }
 
-/* 📼 CASSETTE */
 .cassette {
     width: 100%;
     max-width: 320px;
@@ -270,7 +440,6 @@ h1 {
     box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-/* window */
 .cassette-window {
     height: 60px;
     background: rgba(255,255,255,0.08);
@@ -280,7 +449,6 @@ h1 {
     justify-content: space-around;
 }
 
-/* reels */
 .reel {
     width: 28px;
     height: 28px;
@@ -293,7 +461,6 @@ h1 {
     animation-direction: reverse;
 }
 
-/* tape */
 .tape-line {
     flex: 1;
     height: 4px;
@@ -308,7 +475,6 @@ h1 {
     opacity: 0.7;
 }
 
-/* controls */
 .cassette-controls {
     display: flex;
     justify-content: center;
@@ -339,6 +505,35 @@ h1 {
 }
 
 /* =========================
+   DRIVE BUTTON
+========================= */
+.drive-link-container {
+    text-align: center;
+    margin: 30px 0 10px 0;
+}
+
+.drive-btn {
+    background-color: white;
+    color: #ec4899;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.drive-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    color: #db2777;
+}
+
+/* =========================
    GRADIENTS
 ========================= */
 .gradient-1 { background: linear-gradient(135deg, #f472b6, #fb7185); }
@@ -349,29 +544,14 @@ h1 {
 .gradient-6 { background: linear-gradient(135deg, #e879f9, #ec4899); }
 .gradient-7 { background: linear-gradient(135deg, #ef4444, #ec4899); }
 
-.drive-link-container {
-    text-align: center;
-    margin: 30px 0 10px 0;
-}
-
-.drive-btn {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.drive-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+@media (max-width: 640px) {
+    h1 { font-size: 2rem; }
+    .envelope { padding: 20px; }
+    .letter-content { padding: 25px; }
+    .game-content { padding: 25px; }
+    .letter-box { width: 50px; height: 50px; font-size: 1.5rem; }
+    .key { padding: 12px; min-width: 35px; font-size: 0.9rem; }
 }
