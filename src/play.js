@@ -254,7 +254,7 @@ function submitGuess() {
     msg.className = "message success";
 
     unlockedLetters[selectedLetter.day] = true;
-    localStorage.setItem("unlockedLetters", JSON.stringify(unlockedLetters));
+    
 
     setTimeout(() => {
       closeGame();
