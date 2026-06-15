@@ -107,6 +107,33 @@ you’ll always be my favorite notification`,
   }
 ];
 
+export const bonusVoiceNotes = [
+  { 
+    title: "Random College Gossip", 
+    voice: "./voices/9.mp3" 
+  },
+  { 
+    title: "Late Night Yapping", 
+    voice: "./voices/10.mp3" 
+  },
+  { 
+    title: "Just Because", 
+    voice: "./voices/11.mp3" 
+  }
+   { 
+    title: "Panda 🐼", 
+    voice: "./voices/12.mp3" 
+  }
+ { 
+    title: "Strawberry", 
+    voice: "./voices/13.mp3" 
+  }
+ { 
+    title: "Butterfly 🦋", 
+    voice: "./voices/14.mp3" 
+  }
+];
+
 export const wordPuzzles = {
   1: { word: "ANNOYING", hint: "U are Miss _____" },
   2: { word: "CHAOS", hint: "U are my _____ Partner" },
